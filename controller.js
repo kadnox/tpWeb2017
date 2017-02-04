@@ -12,6 +12,47 @@ function Pencil(ctx, drawing, canvas) {
 	new DnD(canvas, this);
 
 	// Implémentez ici les 3 fonctions onInteractionStart, onInteractionUpdate et onInteractionEnd
+	this.onInteractionStart = function (DnD) {
+		ctx.clearRect(0,0,canvas.width, canvas.height);
+		//drawing.paint(ctx);
+		epaisseur = $('#spinnerWidth').val();
+		couleur = $('#colour').val();
+		if($('#butRect')[0].checked){
+			var rec = new Rectangle(DnD.posxinit-DnD.posxfin , DnD.posyinit - DnD.posyfin, DnD.posxinit, DnD.posyinit , epaisseur, couleur)
+		}else{
+			var line = new Line(DnD.posxinit, DnD.posyfin, 0, 0, epaisseur, couleur)
+		}
+	}
+
+	this.onInteractionUpdate= function (DnD){
+		ctx.clearRect(0,0,canvas.width, canvas.height);
+		drawing.paint(ctx);
+		epaisseur = $('#spinnerWidth').val();
+		couleur = $('#colour').val();
+		if($('#butRect')[0].checked){
+			var rec = new Rectangle(DnD.posxinit-DnD.posxfin , DnD.posyinit - DnD.posyfin, DnD.posxinit, DnD.posyinit , epaisseur, couleur)
+			rec.paint(ctx)
+		}else{
+			var line = new Line(DnD.posxinit, DnD.posyfin, 0, 0, epaisseur, couleur)
+			line.paint(ctx)
+		}
+	}
+
+	this.onInteractionEnd= function (DnD){
+		ctx.clearRect(0,0,canvas.width, canvas.height);
+		drawing.paint(ctx);
+		epaisseur = $('#spinnerWidth').val();
+		couleur = $('#colour').val();
+		if($('#butRect')[0].checked){
+			var rec = new Rectangle(DnD.posxinit-DnD.posxfin , DnD.posyinit - DnD.posyfin, DnD.posxinit, DnD.posyinit , epaisseur, couleur)
+			drawing.ajoutForme(rec)
+			rec.paint(ctx)
+		}else{
+			var line = new Line(DnD.posxinit, DnD.posyfin, 0, 0, epaisseur, couleur)
+			drawing.ajoutForme(line)
+			line.paint(ctx)
+		}
+	}
 };
 
 
