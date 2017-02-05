@@ -33,7 +33,7 @@ function Pencil(ctx, drawing, canvas) {
 			var rec = new Rectangle(DnD.posxinit-DnD.posxfin , DnD.posyinit - DnD.posyfin, DnD.posxinit, DnD.posyinit , epaisseur, couleur)
 			rec.paint(ctx)
 		}else{
-			var line = new Line(DnD.posxinit, DnD.posyfin, 0, 0, epaisseur, couleur)
+			var line = new Line(DnD.posxinit, DnD.posyinit, DnD.posxfin, DnD.posyfin, epaisseur, couleur)
 			line.paint(ctx)
 		}
 	}
@@ -48,7 +48,7 @@ function Pencil(ctx, drawing, canvas) {
 			drawing.ajoutForme(rec)
 			rec.paint(ctx)
 		}else{
-			var line = new Line(DnD.posxinit, DnD.posyfin, 0, 0, epaisseur, couleur)
+			var line = new Line(DnD.posxinit, DnD.posyinit, DnD.posxfin, DnD.posyfin, epaisseur, couleur)
 			drawing.ajoutForme(line)
 			line.paint(ctx)
 		}

@@ -7,6 +7,7 @@ function DnD(canvas, interactor) {
     this.posyinit = 0;
     this.posxfin = 0;
     this.posyfin = 0;
+    this.click = 0;
 	// Developper les 3 fonctions gérant les événements
 
     this.maFctGérantLaPression = function(evt){
@@ -16,17 +17,22 @@ function DnD(canvas, interactor) {
         // console.log("Pression");
         // console.log(this.posxinit);
         // console.log(this.posyinit);
+        this.click = 1
         pencil.onInteractionStart(this);
     }
 
-    this.maFctGérantLeDéplacement = function(evt){
+    this.maFctGérantLeDéplacement = function(evt) {
         var coord = getMousePosition(canvas, evt);
         this.posxfin = coord.x;
         this.posyfin = coord.y;
         // console.log("Move");
         // console.log(this.posxinit);
         // console.log(this.posyinit);
-        pencil.onInteractionUpdate(this);
+        if (this.click == 1) {
+            pencil.onInteractionUpdate(this);
+        }
+
+
     }
 
     this.maFctGérantLeRelâchement = function(evt){
@@ -36,6 +42,7 @@ function DnD(canvas, interactor) {
         // console.log("Relach");
         // console.log(this.posxinit);
         // console.log(this.posyinit);
+        this.click = 0
         pencil.onInteractionEnd(this);
     }
 
