@@ -4,16 +4,16 @@ Rectangle.prototype.paint = function(ctx) {
     ctx.beginPath();
     ctx.rect(this.posx,this.posy,this.hauteur,this.largeur)
     ctx.strokeStyle = this.couleur
-    ctx.strokeWidth = this.epaisseur
+    ctx.lineWidth = this.epaisseur
     ctx.stroke();
 };
 
 Line.prototype.paint = function(ctx) {
     ctx.beginPath();
     ctx.moveTo(this.posxA, this.posyA);
-    ctx.lineTo(this.posyB, this.posyB);
+    ctx.lineTo(this.posxB, this.posyB);
     ctx.strokeStyle = this.couleur
-    ctx.strokeWidth = this.epaisseur
+    ctx.lineWidth = this.epaisseur
     ctx.stroke();
 
 };

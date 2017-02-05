@@ -18,7 +18,7 @@ function Pencil(ctx, drawing, canvas) {
 		epaisseur = $('#spinnerWidth').val();
 		couleur = $('#colour').val();
 		if($('#butRect')[0].checked){
-			var rec = new Rectangle(DnD.posxinit-DnD.posxfin , DnD.posyinit - DnD.posyfin, DnD.posxinit, DnD.posyinit , epaisseur, couleur)
+			var rec = new Rectangle( DnD.posyfin - DnD.posyinit,DnD.posxfin - DnD.posxinit, DnD.posxinit, DnD.posyinit , epaisseur, couleur)
 		}else{
 			var line = new Line(DnD.posxinit, DnD.posyfin, 0, 0, epaisseur, couleur)
 		}
@@ -30,7 +30,7 @@ function Pencil(ctx, drawing, canvas) {
 		epaisseur = $('#spinnerWidth').val();
 		couleur = $('#colour').val();
 		if($('#butRect')[0].checked){
-			var rec = new Rectangle(DnD.posxinit-DnD.posxfin , DnD.posyinit - DnD.posyfin, DnD.posxinit, DnD.posyinit , epaisseur, couleur)
+			var rec = new Rectangle( DnD.posyfin - DnD.posyinit,DnD.posxfin - DnD.posxinit, DnD.posxinit, DnD.posyinit , epaisseur, couleur)
 			rec.paint(ctx)
 		}else{
 			var line = new Line(DnD.posxinit, DnD.posyinit, DnD.posxfin, DnD.posyfin, epaisseur, couleur)
@@ -44,7 +44,7 @@ function Pencil(ctx, drawing, canvas) {
 		epaisseur = $('#spinnerWidth').val();
 		couleur = $('#colour').val();
 		if($('#butRect')[0].checked){
-			var rec = new Rectangle(DnD.posxinit-DnD.posxfin , DnD.posyinit - DnD.posyfin, DnD.posxinit, DnD.posyinit , epaisseur, couleur)
+			var rec = new Rectangle( DnD.posyfin - DnD.posyinit,DnD.posxfin - DnD.posxinit, DnD.posxinit, DnD.posyinit , epaisseur, couleur)
 			drawing.ajoutForme(rec)
 			rec.paint(ctx)
 		}else{
